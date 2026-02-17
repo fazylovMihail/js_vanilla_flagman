@@ -18,7 +18,7 @@ function handleCatalogInput(arr, { catalogForm, catalogSortSelect, catalogList, 
   formData.type = [...checkboxChecked].map(checkbox => checkbox.value);
 
   const filteredArr = arr.filter(obj => {
-    const filteredType = formData.type.every(item => obj.type.includes(item));
+    const filteredType = formData.type.length === 0 || formData.type.some(item => obj.type.includes(item));
     let statusMatch = true;
 
     if (formData.status === 'instock') {

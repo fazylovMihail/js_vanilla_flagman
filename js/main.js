@@ -67,8 +67,15 @@ document.addEventListener('DOMContentLoaded', async () => {
   initCitySelect(city, ELEMENTS);
 
   // Открытие и закрытие корзины
-  ELEMENTS.headerBasketBtn.addEventListener('click', () => {
+  ELEMENTS.headerBasketBtn.addEventListener('click', e => {
+    e.stopPropagation();
     ELEMENTS.headerBasket.classList.toggle('basket--active');
+  });
+
+  document.addEventListener('click', e => {
+    if (!ELEMENTS.headerBasket.contains(e.target)) {
+      ELEMENTS.headerBasket.classList.remove('basket--active');
+    }
   });
 
   // Работа аккордеона
