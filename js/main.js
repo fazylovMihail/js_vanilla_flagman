@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   renderBasket(basket, ELEMENTS);
 
   // Получение базы карточек
-  const data = await getData();
+  const data = await getData() || [];
   const productData = data.map(el => new Product(el, basket, ELEMENTS)); // Общий массив для операций фильтрации
 
   // Массив, с которым будет работать ф-я сортировки
