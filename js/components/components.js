@@ -3,7 +3,7 @@ import { pageSize } from "./contants.js";
 // Ф-я для получения БД
 async function getData() {
   try {
-    const response = await fetch("/data/data.json", { method: 'GET' });
+    const response = await fetch("/js_vanilla_flagman/data/data.json", { method: 'GET' });
     if (!response.ok) throw new Error('Ошибка запроса');
     const data = await response.json();
     return data;
